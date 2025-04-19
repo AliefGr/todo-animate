@@ -10,8 +10,13 @@ export class Task {
         makeAutoObservable(this)
     }
 
+    // protected fetchs() {
+    //     this._tasks = JSON.parse(localStorage[STORAGE_KEY])
+    // }
+
     protected fetchs() {
-        this._tasks = JSON.parse(localStorage[STORAGE_KEY])
+        const raw = localStorage[STORAGE_KEY]
+        this._tasks = raw ? JSON.parse(raw) : []
     }
 
     protected sync() {
